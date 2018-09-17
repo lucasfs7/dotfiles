@@ -308,6 +308,63 @@
     <keybind key="W-Return">
       <action name="ToggleMaximize"/>
     </keybind>
+    <!-- Keybindings for moving windows with keyboard -->
+    <keybind key="A-l">
+      <action name="MoveRelative">
+        <x>10</x>
+      </action>
+    </keybind>
+    <keybind key="A-h">
+      <action name="MoveRelative">
+        <x>-10</x>
+      </action>
+    </keybind>
+    <keybind key="A-j">
+      <action name="MoveRelative">
+        <y>10</y>
+      </action>
+    </keybind>
+    <keybind key="A-k">
+      <action name="MoveRelative">
+        <y>-10</y>
+      </action>
+    </keybind>
+    <!-- Keybindings for resizing windows with keyboard -->
+    <keybind key="A-S-l">
+      <action name="ResizeRelative">
+        <right>10</right>
+      </action>
+    </keybind>
+    <keybind key="A-S-h">
+      <action name="ResizeRelative">
+        <left>10</left>
+      </action>
+    </keybind>
+    <keybind key="A-S-j">
+      <action name="ResizeRelative">
+        <bottom>10</bottom>
+      </action>
+    </keybind>
+    <keybind key="A-S-k">
+      <action name="ResizeRelative">
+        <top>10</top>
+      </action>
+    </keybind>
+    <keybind key="A-S-C-l">
+      <action name="ResizeRelative">
+        <right>-10</right>
+      </action>
+    </keybind>
+    <keybind key="A-S-C-j">
+      <action name="ResizeRelative">
+        <bottom>-10</bottom>
+      </action>
+    </keybind>
+    <keybind key="A-S-C-k">
+      <action name="ResizeRelative">
+        <top>-10</top>
+      </action>
+    </keybind>
     <!-- Keybindings for running applications -->
     <keybind key="W-space">
       <action name="Execute">
