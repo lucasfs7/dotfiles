@@ -307,6 +307,7 @@
     </keybind>
     <keybind key="W-Return">
       <action name="ToggleMaximize"/>
+      <action name="ToggleDecorations"/>
     </keybind>
     <!-- Keybindings for moving windows with keyboard -->
     <keybind key="A-l">
