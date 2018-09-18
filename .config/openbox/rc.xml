@@ -42,8 +42,8 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Clearlooks</name>
-    <titleLayout>CLM</titleLayout>
+    <name>Tenebris</name>
+    <titleLayout>MC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
