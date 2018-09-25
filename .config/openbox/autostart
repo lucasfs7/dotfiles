@@ -1,3 +1,19 @@
+# Set a background color
+BG=""
+if which hsetroot >/dev/null; then
+    BG=hsetroot
+else
+    if which esetroot >/dev/null; then
+    BG=esetroot
+    else
+    if which xsetroot >/dev/null; then
+        BG=xsetroot
+    fi
+    fi
+fi
+test -z $BG || $BG -solid "#6272A4"
+
+# panel and indicators
 tint2 &
 lxqt-powermanagement &
 lxqt-notificationd &
