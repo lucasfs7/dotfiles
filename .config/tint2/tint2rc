@@ -62,18 +62,18 @@ border_color_pressed = #000000 100
 
 #-------------------------------------
 # Panel
-panel_items = SC
+panel_items = SCB
 panel_size = 100% 70
-panel_margin = 20 20
+panel_margin = 0 0
 panel_padding = 20 20
 panel_background_id = 1
 wm_menu = 1
 panel_dock = 0
 panel_position = top right horizontal
-panel_layer = bottom
+panel_layer = top
 panel_monitor = all
 panel_shrink = 1
-autohide = 0
+autohide = 1
 autohide_show_timeout = 0
 autohide_hide_timeout = 0.5
 autohide_height = 0
@@ -173,16 +173,16 @@ clock_dwheel_command =
 
 #-------------------------------------
 # Battery
-battery_tooltip = 1
+battery_tooltip = 
 battery_low_status = 10
 battery_low_cmd = xmessage 'tint2: Battery low!'
 battery_full_cmd = 
 battery_font_color = #ffffff 100
-bat1_format = 
-bat2_format = 
-battery_padding = 1 0
+bat1_format = %p
+bat2_format = %t
+battery_padding = 0 0
 battery_background_id = 0
-battery_hide = 101
+battery_hide = never
 battery_lclick_command = 
 battery_rclick_command = 
 battery_mclick_command = 
