@@ -381,6 +381,15 @@
         <command>rofi -combi-modi window,drun,run -show combi -modi combi</command>
       </action>
     </keybind>
+    <keybind key="W-Escape">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>light-locker</name>
+        </startupnotify>
+        <command>light-locker-command -l</command>
+      </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>

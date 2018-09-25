@@ -13,6 +13,9 @@ else
 fi
 test -z $BG || $BG -solid "#6272A4"
 
+# daemons
+light-locker &
+
 # panel and indicators
 tint2 &
 lxqt-powermanagement &
