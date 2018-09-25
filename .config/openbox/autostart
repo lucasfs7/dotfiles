@@ -1,3 +1,6 @@
 tint2 &
+lxqt-powermanagement &
+lxqt-notificationd &
+pnmixer &
+blueman-applet &
 nm-applet &
-# volumeicon &
