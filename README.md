@@ -9,6 +9,7 @@
 - openbox
 - tint2
 - rofi
+- ranger
 
 ## Dependencies
 
@@ -16,3 +17,6 @@
 - [nvm](https://github.com/creationix/nvm)
 - [tpm](https://github.com/tmux-plugins/tpm)
 - [vim-plug](https://github.com/junegunn/vim-plug)
+- w3m-img (ranger image preview)
+- pdftotext (ranger pdf preview)
+- udiskie (auto mount usb drives)
