@@ -24,6 +24,7 @@ pnmixer &
 blueman-applet &
 nm-applet &
 udiskie &
+mpd &
 
 # configure trackpad
 xinput set-prop 12 284 1
