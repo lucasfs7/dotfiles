@@ -10,6 +10,7 @@
 - tint2
 - rofi
 - ranger
+- ncmpcpp
 
 ## Dependencies
 
@@ -20,3 +21,4 @@
 - w3m-img (ranger image preview)
 - pdftotext (ranger pdf preview)
 - udiskie (auto mount usb drives)
+- mpd (for playing music with ncmpcpp)
