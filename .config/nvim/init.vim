@@ -6,6 +6,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
 
 " tools
 Plug 'itchyny/vim-gitbranch'
@@ -26,6 +27,7 @@ Plug 'tpope/vim-markdown'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
+Plug 'dbeniamine/todo.txt-vim'
 
 call plug#end()
 
