@@ -266,10 +266,8 @@ bar {
     # }
 }
 
-exec mako
-exec [ ! -s ~/.config/mpd/pid ] && mpd
-# exec redshift -l 19.10498:-98.28768
-exec redshift
-# exec --no-startup-id python ~/.config/sway/inactive-window-transparency.py
+exec --no-startup-id mako
+exec --no-startup-id [ ! -s ~/.config/mpd/pid ] && mpd
+exec --no-startup-id redshift # exec redshift -l 19.10498:-98.28768
 
 include /etc/sway/config.d/*
