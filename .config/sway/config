@@ -229,6 +229,8 @@ gaps inner $gap_size
 default_border pixel $border_size
 default_floating_border normal $border_size
 focus_follows_mouse no
+focus_wrapping no
+title_align center
 
 client.focused $foreground $foreground $color1 $foreground $foreground
 client.unfocused $color8 $color8 $foreground $color8 $color8
