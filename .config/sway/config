@@ -47,10 +47,10 @@ output * bg $color1 solid_color
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 61629F' \
+         timeout 300 "~/.config/sway/start_swaylock.sh" \
          timeout 600 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 61629F'
+         before-sleep "~/.config/sway/start_swaylock.sh"
 
 #
 ### Input configuration
@@ -86,7 +86,7 @@ exec swayidle -w \
     bindsym $mod+space exec $menu
 
     # lock screen
-    bindsym $mod+Escape exec swaylock -f -c 61629F
+    bindsym $mod+Escape exec ~/.config/sway/start_swaylock.sh
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
