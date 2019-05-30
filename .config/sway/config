@@ -120,6 +120,9 @@ exec swayidle -w \
 # Workspaces:
 #
     # switch to workspace
+    bindsym $mod+Control+l workspace next
+    bindsym $mod+Control+h workspace prev
+    bindsym $mod+Tab workspace back_and_forth
     bindsym $mod+1 workspace 1
     bindsym $mod+2 workspace 2
     bindsym $mod+3 workspace 3
