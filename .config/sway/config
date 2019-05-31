@@ -251,16 +251,25 @@ bar {
 		bindsym button7 nop<Paste>
 
     # position top
-    # mode hide
-    # modifier $mod
+    # gaps $gap_size
     # status_command while ~/.config/sway/status.sh; do sleep 1; done
 
     # colors {
-        # statusline $foreground
-        # background $background
-        # focused_workspace $foreground $background $foreground
-        # inactive_workspace $background $background $foreground
+    #     statusline $foreground
+    #     background $full_transparent
+    #     focused_workspace $foreground $foreground $color1
+    #     inactive_workspace $full_transparent $full_transparent $foreground
     # }
+
+    position top
+    status_command while ~/.config/sway/status.sh; do sleep 1; done
+
+    colors {
+      statusline $foreground
+      background $background
+      focused_workspace $background $foreground $color1
+      inactive_workspace $background $background $foreground
+    }
 }
 
 exec --no-startup-id mako
