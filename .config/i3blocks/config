@@ -1,6 +1,6 @@
 [volume]
 command=~/.config/i3blocks/commands/volume.sh
-interval=once
+interval=5
 signal=1
 
 [wifi]
