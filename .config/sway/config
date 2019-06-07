@@ -209,21 +209,14 @@ exec swayidle -w \
 # Resizing containers:
 #
 
-mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
-
-    # return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
+    bindsym $mod+Shift+Control+$left resize shrink width 10px
+    bindsym $mod+Shift+Control+$down resize grow height 10px
+    bindsym $mod+Shift+Control+$up resize shrink height 10px
+    bindsym $mod+Shift+Control+$right resize grow width 10px
 
 gaps inner $gap_size
 default_border pixel $border_size
