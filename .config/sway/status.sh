@@ -60,6 +60,41 @@ fi
 
 network="$network_icon $network_status"
 
+# bluetooth status
+bluetooth_status=$(\
+  bluetooth | \
+  awk '{print $3}'
+)
+bluetooth_device=$(\
+  echo -e 'devices' | \
+  bluetoothctl | \
+  awk '/Device.+/ { print $2}'\
+)
+bluetooth_device_status=$(\
+  echo -e "info $bluetooth_device" | \
+  bluetoothctl | \
+  awk '/Connected:.+/ {print $2}'\
+)
+bluetooth_device_name=$(\
+  echo -e "info $bluetooth_device" | \
+  bluetoothctl | \
+  awk '/Name:*/ {$1=""; print $0}' | \
+  sed -e 's/^[[:space:]]*//'
+)
+
+if [[ "$bluetooth_status" == "off" ]]; then
+  bluetooth_icon=''
+  bluetooth_label=$bluetooth_status
+elif [[ "$bluetooth_device_status" == "yes" ]]; then
+  bluetooth_icon=''
+  bluetooth_label=$bluetooth_device_name
+else
+  bluetooth_icon=''
+  bluetooth_label=$bluetooth_status
+fi
+
+bluetooth="$bluetooth_icon $bluetooth_label"
+
 # print full status
 # printf " [0;31;47m %b [0m" "$audio_volume" "$network" "$bat" "$time"
-printf " [ %b ]" "$audio_volume" "$network" "$bat" "$time"
+printf " [ %b ]" "$audio_volume" "$network" "$bluetooth" "$bat" "$time"
