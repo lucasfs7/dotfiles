@@ -37,7 +37,9 @@ set $full_transparent #00000000
 #
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg $color1 solid_color
+# output * bg $wallpaper fill
+# output * bg $color1 solid_color
+output * bg $background solid_color
 
 #
 ### Idle configuration
@@ -224,15 +226,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 gaps inner $gap_size
-# smart_gaps on
-# smart_borders no_gaps
 default_border pixel $border_size
 default_floating_border normal $border_size
 focus_follows_mouse no
 focus_wrapping no
 title_align center
 
-client.focused $foreground $foreground $color1 $foreground $foreground
+client.focused $foreground $foreground $background $foreground $foreground
 client.unfocused $color8 $color8 $foreground $color8 $color8
 client.focused_inactive $color8 $color8 $foreground $color8 $color8
 
@@ -250,24 +250,14 @@ bar {
 		bindsym button6 nop
 		bindsym button7 nop<Paste>
 
-    # position top
-    # gaps $gap_size
-    # status_command while ~/.config/sway/status.sh; do sleep 1; done
-
-    # colors {
-    #     statusline $foreground
-    #     background $full_transparent
-    #     focused_workspace $foreground $foreground $color1
-    #     inactive_workspace $full_transparent $full_transparent $foreground
-    # }
-
     position top
+    gaps $gap_size
     status_command while ~/.config/sway/status.sh; do sleep 1; done
 
     colors {
       statusline $foreground
       background $background
-      focused_workspace $background $foreground $color1
+      focused_workspace $background $foreground $background
       inactive_workspace $background $background $foreground
     }
 }
