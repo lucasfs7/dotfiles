@@ -152,9 +152,9 @@ exec swayidle -w \
 # Media keys:
 #
 
-    bindsym XF86AudioRaiseVolume exec pamixer -i 5
-    bindsym XF86AudioLowerVolume exec pamixer -d 5
-    bindsym XF86AudioMute exec pamixer -t
+    bindsym XF86AudioRaiseVolume exec pamixer -i 5 && pkill -SIGRTMIN+1 i3blocks
+    bindsym XF86AudioLowerVolume exec pamixer -d 5 && pkill -SIGRTMIN+1 i3blocks
+    bindsym XF86AudioMute exec pamixer -t && pkill -SIGRTMIN+1 i3blocks
     bindsym XF86AudioPlay exec mpc -q toggle
     bindsym XF86AudioPrev exec mpc -q prev
     bindsym XF86AudioNext exec mpc -q next
@@ -252,11 +252,11 @@ bar {
 
     position top
     gaps $gap_size
-    status_command while ~/.config/sway/status.sh; do sleep 1; done
+    separator_symbol ""
+    status_command i3blocks
 
     colors {
-      statusline $foreground
-      background $background
+      background $full_transparent
       focused_workspace $background $foreground $background
       inactive_workspace $background $background $foreground
     }
