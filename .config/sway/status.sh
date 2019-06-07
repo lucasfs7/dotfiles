@@ -17,42 +17,33 @@ fi
 bat="$bat_icon $bat_percent"
 
 # volume status
+audio_volume_muted=$(pamixer --get-mute)
+audio_volume_percent="$(pamixer --get-volume)%"
 audio_volume_headphone_status=$(\
   amixer -c 0 cget numid=16,iface=CARD | \
   awk -F"=" 'NR == 3 {print $2;}'\
 )
+audio_volume_bluetooth=$(\
+  pactl info | awk '/Default Sink:.+/ {print $3}' | \
+  grep 'bluez'\
+)
 
-if [[ $(amixer -M | grep 'Sudio') != "" ]]; then
-  audio_volume_control='Sudio Regent - A2DP'
+if [[ "$audio_volume_bluetooth" != "" ]]; then
   audio_volume_off_icon='﫾'
   audio_volume_on_icon='﫽'
 elif [[ "$audio_volume_headphone_status" == "on" ]]; then
-  audio_volume_control='Headphone'
   audio_volume_off_icon='ﳌ'
   audio_volume_on_icon=''
 else
-  audio_volume_control='Speaker'
   audio_volume_off_icon='婢'
   audio_volume_on_icon=$'墳'
 fi
 
-audio_volume_control_status=$(\
-  amixer -M get "$audio_volume_control" | \
-  awk '/Front Left:.+/ {print $NF}' | \
-  tr -d '[]'\
-)
-
-if [[ "$audio_volume_control_status" == "off" ]]; then
+if [[ "$audio_volume_muted" == "true" ]]; then
   audio_volume_icon=$audio_volume_off_icon
 else
   audio_volume_icon=$audio_volume_on_icon
 fi
-
-audio_volume_percent=$(\
-  amixer -M get "$audio_volume_control" | \
-  awk '/Front Left:.+/ {print $5}' | \
-  tr -d '[]'\
-)
 
 audio_volume="$audio_volume_icon $audio_volume_percent"
 
