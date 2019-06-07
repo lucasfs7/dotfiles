@@ -1,7 +1,5 @@
 #!/bin/sh
 
-. "$HOME/.cache/wal/colors.sh"
-
 name=$(upower --enumerate | grep 'BAT')
 state=$(upower --show-info $name | egrep "state" | awk '{print $2}')
 percent=$(upower --show-info $name | egrep "percentage" | awk '{print $2}')
@@ -14,7 +12,4 @@ else
   icon=''
 fi
 
-echo "[ $icon $percent ]"
-echo ""
-echo "$foreground"
-echo "$background"
+echo "$icon $percent"

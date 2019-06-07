@@ -245,12 +245,14 @@ bar {
 
     position top
     gaps $gap_size
-    separator_symbol ""
+    separator_symbol " | "
     status_command i3blocks
 
     colors {
+      separator $foreground
+      statusline $foreground
       background $full_transparent
-      focused_workspace $background $foreground $background
+      focused_workspace $foreground $full_transparent $foreground
       inactive_workspace $background $background $foreground
     }
 }

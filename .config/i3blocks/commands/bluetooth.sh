@@ -1,7 +1,5 @@
 #!/bin/sh
 
-. "$HOME/.cache/wal/colors.sh"
-
 status=$(\
   bluetooth | \
   awk '{print $3}'
@@ -37,7 +35,4 @@ else
   label=$status
 fi
 
-echo "[ $icon $label ]"
-echo ""
-echo "$foreground"
-echo "$background"
+echo "$icon $label"

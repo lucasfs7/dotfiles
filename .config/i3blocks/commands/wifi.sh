@@ -1,7 +1,5 @@
 #!/bin/sh
 
-. "$HOME/.cache/wal/colors.sh"
-
 ssid=$(iw dev wlp2s0 info | grep ssid | awk '{ print $2 }')
 
 if [[ "$ssid" != "" ]]; then
@@ -12,7 +10,4 @@ else
   status='off'
 fi
 
-echo "[ $icon $status ]"
-echo ""
-echo "$foreground"
-echo "$background"
+echo "$icon $status"

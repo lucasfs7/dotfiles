@@ -1,7 +1,5 @@
 #!/bin/sh
 
-. "$HOME/.cache/wal/colors.sh"
-
 muted=$(pamixer --get-mute)
 percent="$(pamixer --get-volume)%"
 headphone_status=$(\
@@ -30,7 +28,4 @@ else
   icon=$on_icon
 fi
 
-echo "[ $icon $percent ]"
-echo ""
-echo "$foreground"
-echo "$background"
+echo "$icon $percent"
