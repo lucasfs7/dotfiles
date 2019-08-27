@@ -1,5 +1,6 @@
 #!/bin/sh
 
+icon=''
 time=$(date +"%a / %b %d / %I:%M %p")
 
-echo "$time"
+echo "$icon $time"
