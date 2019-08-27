@@ -1,25 +1,19 @@
 #!/bin/sh
 
 status=$(\
-  bluetooth | \
-  awk '{print $3}'
-)
-
-device=$(\
-  echo -e 'devices' | \
-  bluetoothctl | \
-  awk '/Device.+/ { print $2}'\
+  bluetoothctl -- "show" | \
+  awk '/Powered:.+/ { print $2}' | \
+  sed 's/yes/on/g' | \
+  sed 's/no/off/g'\
 )
 
 device_status=$(\
-  echo -e "info $device" | \
-  bluetoothctl | \
+  bluetoothctl -- 'info' | \
   awk '/Connected:.+/ {print $2}'\
 )
 
 device_name=$(\
-  echo -e "info $device" | \
-  bluetoothctl | \
+  bluetoothctl -- 'info' | \
   awk '/Name:*/ {$1=""; print $0}' | \
   sed -e 's/^[[:space:]]*//'
 )
