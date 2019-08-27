@@ -13,7 +13,7 @@ interval=1
 
 [battery]
 command=~/.config/i3blocks/commands/battery.sh
-interval=60
+interval=5
 
 [datetime]
 command=~/.config/i3blocks/commands/datetime.sh
