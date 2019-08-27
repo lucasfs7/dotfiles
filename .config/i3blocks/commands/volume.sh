@@ -7,7 +7,8 @@ headphone_status=$(\
   awk -F"=" 'NR == 3 {print $2;}'\
 )
 bluetooth=$(\
-  pactl info | awk '/Default Sink:.+/ {print $3}' | \
+  pactl info | \
+  awk '/Default Sink:.+/ {print $3}' | \
   grep 'bluez'\
 )
 
