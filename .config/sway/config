@@ -23,7 +23,7 @@ set $browser luakit
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 # set $menu dmenu_path | dmenu | xargs swaymsg exec
-set $menu kitty --class=launcher --session="$HOME/.config/kitty/launcher_session.conf"
+set $menu kitty --class=launcher --config="$HOME/.config/kitty/launcher.conf"
 
 # Sizing
 set $gap_size 10
