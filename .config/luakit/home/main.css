@@ -1,0 +1,6 @@
+@import url("file:///home/lucasfs7/.cache/wal/colors.css");
+
+html, body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
