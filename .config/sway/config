@@ -23,7 +23,7 @@ set $browser luakit
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 # set $menu dmenu_path | dmenu | xargs swaymsg exec
-set $menu rofi -show drun
+set $menu kitty --class=launcher --session="$HOME/.config/kitty/launcher_session.conf"
 
 # Sizing
 set $gap_size 10
@@ -236,6 +236,8 @@ title_align center
 client.focused $foreground $foreground $background $foreground $foreground
 client.unfocused $color8 $color8 $foreground $color8 $color8
 client.focused_inactive $color8 $color8 $foreground $color8 $color8
+
+for_window [app_id="^launcher$"] floating enable, resize set 50ppt 15ppt
 
 xwayland enable
 
