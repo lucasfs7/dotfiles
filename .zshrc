@@ -1,56 +1,78 @@
-# Created by newuser for 5.5.1
-
-source ~/.zplug/init.zsh
-
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-history-substring-search", defer:2
-zplug "modules/autosuggestions", from:prezto, defer:2
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/command-not-found", from:oh-my-zsh
-zplug "modules/fasd", from:prezto
-zplug "modules/history", from:prezto
-zplug "modules/completion", from:prezto
-zplug "modules/directory", from:prezto
-zplug "mafredri/zsh-async", from:github
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
+# start sway
+if [ "$(tty)" = "/dev/tty1" ]; then
+	set -o allexport
+	source ~/.config/sway/env
+	set +o allexport
+	exec sway
 fi
 
-# Then, source plugins and add commands to $PATH
-zplug load
+# exports
+export EDITOR=nvim
+GPG_TTY=$(tty)
+export GPG_TTY
 
+# aliases
+alias wmpv="mpv --gpu-context=wayland"
+alias sunset='wal -i $(cat ~/.cache/wal/wal) -n'
+alias sunrise='wal -i $(cat ~/.cache/wal/wal) -n -l'
+alias canto="canto-curses"
+
+# custom functions
+
+get_crunchyroll_videos() {
+    local u=$(pass Entertainment/crunchyroll.com.br | awk '/Username: .+/ {print $2}')
+    local p=$(pass Entertainment/crunchyroll.com.br | head -1)
+
+    while read url; do youtube-dl $url --all-subs -u "$u" -p "$p"; done < watchlist
+    ls *.ass | grep -v ptBR | while read i; do rm $i; done
+    ls *.ass | grep ptBR | while read i; do j=$(echo $i | sed -e 's/ptBR.//g'); mv $i $j; done
+}
+
+play_videos_in_order() {
+    ls -v *.mp4 | grep -v watchlist | while read i; do echo "'$i'"; done | xargs mpv --gpu-context=wayland
+}
+
+wttr() {
+    clear
+    local request="wttr.in/?F1"
+    [ "$COLUMNS" -lt 125 ] && request+='n'
+    curl -H "Accept-Language: ${LANG%_*}" --compressed "$request"
+    sleep 1h
+    wttr
+}
+
+# load fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# load asdf-vm
+# autoload -Uz compinit && compinit
+source $HOME/.asdf/asdf.sh
+# source $HOME/.asdf/completions/asdf.bash
+
+### Added by Zplugin's installer
+source "$HOME/.zplugin/bin/zplugin.zsh"
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### End of Zplugin's installer chunk
+
+zplugin light zdharma/z-p-submods
+zplugin snippet OMZ::lib/history.zsh
+zplugin snippet OMZ::plugins/git/git.plugin.zsh
+zplugin ice svn submods'clvv/fasd -> external'
+zplugin snippet PZT::modules/fasd
+zplugin snippet PZT::modules/directory/init.zsh
+zplugin ice svn wait"1" silent pick"init.zsh" blockf
+zplugin snippet PZT::modules/completion
+zplugin ice wait"1" atload"_zsh_autosuggest_start" lucid
+zplugin light zsh-users/zsh-autosuggestions
+zplugin light zsh-users/zsh-history-substring-search
+zplugin ice from"gh" wait"1" silent pick"history-search-multi-word.plugin.zsh" lucid
+zplugin light zdharma/history-search-multi-word
+zplugin ice from"gh" wait"1" atinit"zpcompinit; zpcdreplay" lucid
+zplugin light zdharma/fast-syntax-highlighting
+zplugin ice pick"async.zsh" src"pure.zsh"
+zplugin light sindresorhus/pure
+
+# bindings
 bindkey '^[OA' history-substring-search-up
 bindkey '^[OB' history-substring-search-down
-
-# nvm config
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-# keep this after nvm initialization!
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
