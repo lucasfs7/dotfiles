@@ -7,16 +7,13 @@
 
 ### desktop
 - sway
-- rofi
-- ranger
+- nnn
 - ncmpcpp
 
 ## Dependencies
 
-- [zplug](https://github.com/zplug/zplug)
-- [nvm](https://github.com/creationix/nvm)
+- [zplugin](https://github.com/zdharma/zplugin)
+- [asdf](https://github.com/asdf-vm/asdf)
 - [vim-plug](https://github.com/junegunn/vim-plug)
-- w3m-img (ranger image preview)
-- pdftotext (ranger pdf preview)
-- udiskie (auto mount usb drives)
 - mpd (for playing music with ncmpcpp)
+- mupdf
