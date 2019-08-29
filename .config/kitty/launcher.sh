@@ -1,5 +1,7 @@
 #!/bin/bash
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 readarray -t lines < <(echo "$(dot-desktop | fzf --print-query)")
 query="${lines[0]}"
 selection="${lines[1]}"
