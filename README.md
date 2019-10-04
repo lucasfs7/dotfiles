@@ -1,7 +1,7 @@
 ## Current setup
 
 ### shell
-- kitty
+- alacritty
 - zsh
 - neovim
 

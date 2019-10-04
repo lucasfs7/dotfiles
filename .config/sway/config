@@ -17,13 +17,13 @@ set $up k
 set $right l
 
 # Your preferred terminal emulator
-set $term kitty
+set $term alacritty
 set $browser luakit
 
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 # set $menu dmenu_path | dmenu | xargs swaymsg exec
-set $menu kitty --class=launcher --config="$HOME/.config/kitty/launcher.conf"
+set $menu alacritty --class launcher -e "$HOME/.config/sway/launcher.sh"
 
 # Sizing
 set $gap_size 10
