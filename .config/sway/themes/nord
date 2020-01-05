@@ -1,0 +1,36 @@
+set $nord0 #2E3440
+set $nord1 #3B4252
+set $nord2 #434C5E
+set $nord3 #4C566A
+set $nord4 #D8DEE9
+set $nord5 #E5E9F0
+set $nord6 #ECEFF4
+set $nord7 #8FBCBB
+set $nord8 #88C0D0
+set $nord9 #81A1C1
+set $nord10 #5E81AC
+set $nord11 #BF616A
+set $nord12 #D08770
+set $nord13 #EBCB8B
+set $nord14 #A3BE8C
+set $nord15 #B48EAD
+
+set $background $nord0
+set $foreground $nord4
+
+set $color0 $nord1
+set $color1 $nord11
+set $color2 $nord14
+set $color3 $nord13
+set $color4 $nord9
+set $color5 $nord15
+set $color6 $nord8
+set $color7 $nord5
+set $color8 $nord3
+set $color9 $nord11
+set $color10 $nord14
+set $color11 $nord13
+set $color12 $nord9
+set $color13 $nord15
+set $color14 $nord7
+set $color15 $nord6

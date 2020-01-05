@@ -1,1 +1,1 @@
-swaylock -f -i $(cat ~/.cache/wal/wal)
+swaylock -f -l -c "#2E3440"

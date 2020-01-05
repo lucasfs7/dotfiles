@@ -1,7 +1,7 @@
 #
-### paywal
+### theme
 #
-include "$HOME/.cache/wal/colors-sway"
+include "$HOME/.config/sway/themes/nord"
 
 #
 ### Variables
@@ -269,7 +269,7 @@ bar {
 
 exec --no-startup-id mako
 exec --no-startup-id mpd
-exec --no-startup-id redshift # exec redshift -l 19.10498:-98.28768
+exec --no-startup-id "sleep 10s; redshift"
 exec --no-startup-id xdg-desktop-portal-wlr
 
 include /etc/sway/config.d/*

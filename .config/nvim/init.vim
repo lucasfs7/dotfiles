@@ -4,9 +4,9 @@ call plug#begin('~/.config/nvim/bundle')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'arcticicestudio/nord-vim'
 
 " tools
 Plug 'itchyny/vim-gitbranch'
