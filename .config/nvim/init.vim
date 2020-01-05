@@ -1,7 +1,7 @@
 call plug#begin('~/.config/nvim/bundle')
 
 " vim interface
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/limelight.vim'
@@ -9,11 +9,9 @@ Plug 'junegunn/goyo.vim'
 Plug 'arcticicestudio/nord-vim'
 
 " tools
-Plug 'itchyny/vim-gitbranch'
 Plug 'tpope/vim-unimpaired'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-surround'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'mbbill/undotree'
 Plug 'danro/rename.vim'
@@ -21,6 +19,9 @@ Plug 'pbrisbin/vim-mkdir'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'airblade/vim-gitgutter'
 Plug 'w0rp/ale'
+Plug 'liuchengxu/vista.vim'
+Plug 'wellle/context.vim'
+Plug 'brooth/far.vim'
 
 " languages
 Plug 'tpope/vim-markdown'
@@ -28,6 +29,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'elzr/vim-json'
 Plug 'dbeniamine/todo.txt-vim'
+Plug 'zah/nim.vim'
 
 call plug#end()
 
@@ -43,13 +45,12 @@ set nobackup
 set nowb
 set noswapfile
 set clipboard=unnamedplus
-set updatetime=100
 let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
-let g:indent_guides_guide_size = 1
+set noshowmode
 
 " colorscheme
-color dracula
+colorscheme nord
 let g:limelight_conceal_ctermfg = 240
 hi Normal guibg=NONE
 hi Normal ctermbg=NONE
@@ -75,17 +76,42 @@ noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
 
-" fzf binds
-nmap <C-P> :GFiles<CR>
+" toggle undo tree
+nmap <A-u> :UndotreeToggle<cr>
 
-" fzf configs
-let g:fzf_layout = { 'up': '20%' }
+" enter writing mode
+nmap <A-w> :Goyo<cr>:Limelight<cr>
+
+" javascript concealing characters
+set conceallevel=1
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+let g:javascript_conceal_noarg_arrow_function = "ø"
+
+" fzf
+nmap <C-P> :GFiles<CR>
+nmap <C-I> :Files<CR>
+nmap <C-B> :Buffers<CR>
+let g:fzf_layout = { 'up': '100%' }
+
+" search tags/symbols
+nmap <C-O> :Vista finder<CR>
+nmap <A-o> :Vista!!<CR>
+
+" context settings
+let g:context_enabled = 0
+nmap <A-c> :ContextToggle<CR>
 
 " allways show status bar
 set laststatus=2
 
 " configure lightline
 let g:lightline = {
+      \ 'colorscheme': 'nord',
       \ 'component_function': {
       \   'filename': 'LightlineFilename',
       \ },
