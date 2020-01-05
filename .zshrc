@@ -41,9 +41,6 @@ wttr() {
     wttr
 }
 
-# load fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # load asdf-vm
 # autoload -Uz compinit && compinit
 source $HOME/.asdf/asdf.sh
@@ -57,6 +54,7 @@ autoload -Uz _zplugin
 
 zplugin light zdharma/z-p-submods
 zplugin snippet OMZ::lib/history.zsh
+zplugin snippet OMZ::lib/git.zsh
 zplugin snippet OMZ::plugins/git/git.plugin.zsh
 zplugin ice svn submods'clvv/fasd -> external'
 zplugin snippet PZT::modules/fasd
